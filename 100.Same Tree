@@ -1,0 +1,35 @@
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} p
+ * @param {TreeNode} q
+ * @return {boolean}
+ */
+var isSameTree = function(p, q) {
+    pstack=new Array();
+    qstack=new Array();
+    if(p) pstack.push(p);
+    if(q) qstack.push(q);
+    let pval=new TreeNode();
+    let qval=new TreeNode();
+    while(pstack.length!=0&&qstack.length!=0){
+        pval=pstack.pop();
+        qval=qstack.pop();
+        if(pval.val!=qval.val){return false;}
+        
+        if(pval.left) pstack.push(pval.left);
+        if(qval.left) qstack.push(qval.left);
+        if(pstack.length!=qstack.length)  return false;
+        if(pval.right) pstack.push(pval.right);
+        if(qval.right) qstack.push(qval.right);
+        if(pstack.length!=qstack.length)  return false;
+        
+    }
+    if(pstack.length==qstack.length)return true;
+    else return false;
+};
