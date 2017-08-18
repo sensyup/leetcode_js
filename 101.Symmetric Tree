@@ -1,0 +1,43 @@
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {boolean}
+ */
+ //以下是非递归写法
+var isSymmetric = function(root) {
+    if(root==null) return true;
+    let stack=new Array();
+    if(root.left==null&&root.right!=null||root.left!=null&&root.right==null) return false;
+    if(root.left)stack.push(root.left);
+    if(root.right)stack.push(root.right);
+    while(stack.length!=0){
+        let right=stack.pop();
+        let left=stack.pop();
+        if(left.val!=right.val) return false;
+        if(left.left==null&&right.right!=null||left.left!=null&&right.right==null) return false;
+        if(left.right==null&&right.left!=null||left.right!=null&&right.left==null) return false;
+        if(left.left)stack.push(left.left);
+        if(right.right)stack.push(right.right);
+        if(left.right)stack.push(left.right);
+        if(right.left)stack.push(right.left);
+    }
+    return true;
+};
+
+//以下是递归写法
+var isSymmetric = function(root) {
+    return(root==null||isSym(root.left,root.right));
+    function isSym(left,right){
+       if(!left&&!right) return true;
+       if(!left&&right||left&&!right) return false;
+       if(left.val==right.val) return isSym(left.left,right.right)&&isSym(left.right,right.left);
+       else return false;
+       
+   }
+};
