@@ -1,0 +1,32 @@
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[][]}
+ */
+var levelOrderBottom = function(root) {
+    if(!root) return [];
+    let number=new Array();
+    let curnode=new Array();
+    let curval=new Array();
+    curnode.push(root);
+    curval.push(root.val);
+    number.push(curval);
+    while(curnode.length!=0){
+        let curval=new Array();
+        let len=curnode.length;
+        for(let i=0;i<len;i++){
+            let p=curnode[0];
+            curnode.splice(0,1);
+            if(p.left) {curnode.push(p.left); curval.push(p.left.val);}
+            if(p.right) {curnode.push(p.right); curval.push(p.right.val);}
+        }
+        if(curval.length!=0) number.push(curval);
+    }
+    return number.reverse();
+};
