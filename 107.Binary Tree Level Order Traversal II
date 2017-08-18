@@ -9,6 +9,7 @@
  * @param {TreeNode} root
  * @return {number[][]}
  */
+ //广度优先写法
 var levelOrderBottom = function(root) {
     if(!root) return [];
     let number=new Array();
@@ -29,4 +30,18 @@ var levelOrderBottom = function(root) {
         if(curval.length!=0) number.push(curval);
     }
     return number.reverse();
+};
+//深度优先写法
+var levelOrderBottom = function(root) {
+    let number=[];
+    help(root,0,number);
+    number.reverse();
+    return number;
+    function help(node,level,number){
+        if(!node) return;
+        if(!number[level]) number[level]=[];
+        number[level].push(node.val);
+        help(node.left,level+1,number);
+        help(node.right,level+1,number);
+    }
 };
