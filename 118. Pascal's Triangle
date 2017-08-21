@@ -1,0 +1,19 @@
+/**
+ * @param {number} numRows
+ * @return {number[][]}
+ */
+var generate = function(numRows) {
+    let number=[];
+    let i=0;
+    
+    while(i<numRows){
+        
+        number[i]=[1];
+        for(let m=1;m<=i-1;m++){
+            number[i][m]=number[i-1][m-1]+number[i-1][m];
+        }
+        number[i][i]=1; 
+        i++;
+    }
+    return number;
+};
