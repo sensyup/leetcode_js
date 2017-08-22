@@ -1,0 +1,19 @@
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isPalindrome = function(s) {
+    
+    let sar=s.split('').filter(function(item){
+        if((item>='a'&&item<='z')||(item>='A'&&item<='Z')||(item>='0'&&item<='9')){
+           return item  ;
+        }
+    })
+    if(sar.length==0||sar.length==1) return true;
+    for(let i=0;i<sar.length/2;i++){
+        if(sar[i].toLowerCase()!==sar[sar.length-1-i].toLowerCase()) return false
+    }
+    return true;
+    
+    
+};
