@@ -1,0 +1,14 @@
+/**
+ * @param {number[]} prices
+ * @return {number}
+ */
+
+var maxProfit = function(prices) {
+    let a=0;
+    let diff=0;
+    for(let i=1;i<=prices.length-1;i++){
+        if((prices[i]-prices[a])>diff) diff=prices[i]-prices[a];
+        else if(prices[i]<prices[a]) a=i;
+    }
+    return diff;
+};
