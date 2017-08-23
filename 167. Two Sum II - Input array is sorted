@@ -1,0 +1,22 @@
+/**
+ * @param {number[]} numbers
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function(numbers, target) {
+    let number=new Array(2);
+    let a=0,b=numbers.length-1;
+    while(numbers[b]>=numbers[a]){
+        let sum=numbers[b]+numbers[a];
+        if(sum==target){
+            number[0]=a+1;
+            number[1]=b+1;
+            return number;
+        }
+        else if(sum<target){
+            a++;
+        }
+        else b--;
+    }
+    return null;
+};
