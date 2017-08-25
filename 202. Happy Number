@@ -1,0 +1,25 @@
+/**
+ * @param {number} n
+ * @return {boolean}
+ */
+var isHappy = function(n) {
+    function sum(n){
+        let sum1=0;
+        while(n!=0){
+            sum1+=(n%10)*(n%10);
+            n=Math.floor(n/10);
+        }
+        return sum1;
+    }
+    let slow=sum(n),fast=sum(slow);
+    if(n==1) return true;
+    while(slow!=fast){
+        slow=sum(slow);
+        fast=sum(sum(fast));
+        
+    }
+    if(slow==1) return true;
+    else return false;
+
+   
+};
