@@ -1,0 +1,26 @@
+//递归方法
+var reverseList = function(head) {
+    var reverseHelp=function(head,last){
+        if(!head) return last;
+        let next=head.next;
+        head.next=last;
+        return reverseHelp(next,head);
+    }
+    return reverseHelp(head,null);
+    
+};
+
+    // 非递归方法
+    // let temp=new ListNode();
+    // if(!head||!head.next) return head;
+    // let cur=head.next;
+    // let pre=head;
+    // pre.next=null;
+    // while(cur.next!=null){
+    //         temp=cur.next;
+    //         cur.next=pre;
+    //         pre=cur;
+    //         if(temp) cur=temp;
+    //     }
+    // cur.next=pre;
+    // return cur;
