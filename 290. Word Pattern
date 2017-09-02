@@ -1,0 +1,17 @@
+/**
+ * @param {string} pattern
+ * @param {string} str
+ * @return {boolean}
+ */
+var wordPattern = function(pattern, str) {
+    let arr=new Object();
+    let brr=new Object();
+    let strrr=str.split(" ");
+    if(strrr.length!=pattern.length) return false;
+    for(let i=0;i<pattern.length;i++){
+        if(arr[pattern[i]]!=brr[strrr[i]]) return false;
+        arr[pattern[i]]=i+1;
+        brr[strrr[i]]=i+1;
+    }
+    return true;
+};
