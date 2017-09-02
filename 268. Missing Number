@@ -1,0 +1,11 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var missingNumber = function(nums) {
+    let miss=0,i=0;
+    for(;i<nums.length;i++){
+        miss=miss^i^nums[i];
+    }
+    return miss^i;
+}
