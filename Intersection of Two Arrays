@@ -1,0 +1,18 @@
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number[]}
+ */
+var intersection = function(nums1, nums2) {
+    let number=[];
+    let hash1=new Set();
+    let hash2=new Set();
+    for(let i=0;i<nums1.length;i++){
+        hash1.add(nums1[i]);
+    }
+    for(let i=0;i<nums2.length;i++){
+        if(hash1.has(nums2[i]))  hash2.add(nums2[i]); 
+    }
+    return Array.from(hash2);
+};
+//JS中的SET和其他语言中的HASH差不多。
