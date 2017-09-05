@@ -1,0 +1,15 @@
+/**
+ * @param {number} a
+ * @param {number} b
+ * @return {number}
+ */
+var getSum = function(a, b) {
+    if(a==0) return b;
+    if(b==0) return a;
+    while(b!=0){
+        let intersect=a&b;
+        a=a^b;
+        b=intersect<<1;
+    }
+    return a;
+};
