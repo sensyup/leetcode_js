@@ -1,0 +1,16 @@
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {character}
+ */
+var findTheDifference = function(s, t) {
+    let sr=0;
+    // let s='';
+    for(let i=0;i<s.length;i++){
+        sr=sr^t[i].charCodeAt();
+        sr=sr^s[i].charCodeAt();
+    }
+    let i=sr^(t[t.length-1].charCodeAt());
+    
+    return String.fromCharCode(i);
+};
