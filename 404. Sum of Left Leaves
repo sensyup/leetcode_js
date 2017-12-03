@@ -1,0 +1,25 @@
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var sumOfLeftLeaves = function(root) {
+    var nodes=[];
+    if(root) nodes.push(root);
+    var sum=0;
+    while(nodes.length!=0){
+        var node=nodes.pop();
+        if(node.left) nodes.push(node.left);
+        if(node.right) nodes.push(node.right);
+        if(node.left&&!node.left.left&&!node.left.right) {
+            sum+=node.left.val;   
+        }
+    }
+    return sum;
+};
