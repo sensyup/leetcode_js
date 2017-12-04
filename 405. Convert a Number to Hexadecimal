@@ -1,0 +1,15 @@
+/**
+ * @param {number} num
+ * @return {string}
+ */
+var toHex = function(num) {
+    if(num==0) return '0';
+    var string='';
+    var map = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'];
+    while(num!=0){
+        string=map[num&15]+string;
+        num=num>>>4;//>>>是无符号右移，>>是有符号右移（即符号位不变）
+        
+    }
+    return string;
+};
