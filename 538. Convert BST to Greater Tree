@@ -1,0 +1,27 @@
+//Something wrong in test case [2,1,3].I can get the correct answer when 'run code' but wrong answer when 'submit' .
+
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {TreeNode}
+ */
+
+var t=0;
+function mid(root){
+    if(root==null) return;
+    mid(root.right);
+    root.val=root.val+t;
+    t=root.val;
+    mid(root.left);
+}
+var convertBST = function(root) {
+    mid(root);
+    return root;
+};
+
