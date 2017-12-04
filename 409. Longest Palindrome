@@ -1,0 +1,25 @@
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var longestPalindrome = function(s) {
+    var hash={};
+    var num=0;
+    var flag=0;
+    for(var i=0;i<s.length;i++){
+        if (hash[s[i]]) {
+            hash[s[i]]=0;
+            num++;
+        }
+        else hash[s[i]]=1;
+    }
+    
+    for(var m in hash){
+        if(hash[m]){
+           flag=1;
+           break;
+        } 
+    }               
+    
+    return flag==1?num*2+1:num*2;
+};
